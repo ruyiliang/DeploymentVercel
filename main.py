@@ -16,7 +16,7 @@ async def preview():
     return {result}
 
 @app.get("/age/{value}")
-async def agegroupcode(value):
+async def age_group_code(value):
     print('value: ', value)
     filtered = df[df['age_group_code'] == value]
     if len(filtered) <= 0:
@@ -25,7 +25,7 @@ async def agegroupcode(value):
         return {filtered.to_json(orient="records")}
 
 @app.get('/age/{value}/sex/{value2}')
-async def agegroupcode2(value, value2):
+async def age_group_code2(value, value2):
     filtered = df[df['age_group_code'] == value]
     filtered2 = filtered[filtered['sex'] == value2]
     if len(filtered2) <= 0:
