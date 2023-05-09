@@ -15,8 +15,8 @@ async def preview():
     result = top10rows.to_json(orient="records")
     return {result}
 
-@app.get("/rx/{value}")
-async def rxcode(value):
+@app.get("/numberscripts/{value}")
+async def numberscriptscode(value):
     print('value: ', value)
     filtered = df[df['NUMBER_SCRIPTS'] == value]
     if len(filtered) <= 0:
@@ -24,8 +24,8 @@ async def rxcode(value):
     else: 
         return {filtered.to_json(orient="records")}
 
-@app.get('/rx/{value}/PAYER/{value2}')
-async def rxcode2(value, value2):
+@app.get('/numberscripts/{value}/PAYER/{value2}')
+async def numberscriptscode(value, value2):
     filtered = df[df['NUMBER_SCRIPTS'] == value]
     filtered2 = filtered[filtered['PAYER'] == value2]
     if len(filtered2) <= 0:
