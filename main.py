@@ -18,7 +18,7 @@ async def preview():
 @app.get("/rx/{value}")
 async def rxcode(value):
     print('value: ', value)
-    filtered = df[df['THER_CLASS'] == value]
+    filtered = df[df['NUMBER_SCRIPTS'] == value]
     if len(filtered) <= 0:
         return {'There is nothing here.'}
     else: 
